@@ -10,7 +10,7 @@ resource "aws_instance" "mochacat-dev-tf-2021-01" {
   user_data = <<-EOF
               #!/bin/bash
               echo "Hello, World" > index.html
-              nohup busybox httpd -f -p "${var.server_port}" &
+              nohup busybox httpd -f -p "${8080}" &
               EOF
 
   tags = {
@@ -21,8 +21,8 @@ resource "aws_instance" "mochacat-dev-tf-2021-01" {
 resource "aws_security_group" "instance" {
   name = "mochacat-terraform-example-instance"
   ingress {
-    from_port   = var.server_port
-    to_port     = var.server_port
+    from_port   = 8080
+    to_port     = 8080
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
