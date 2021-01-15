@@ -29,6 +29,6 @@ resource "aws_security_group" "instance" {
 }
 
 output "public_ip" {
-  value       = aws_instance.mochacat-dev-tf-2020-01.public_ip
+  value       = aws_instance.mochacat-dev-tf-2021-01.public_ip
   description = "The public IP of the web server"
 }
